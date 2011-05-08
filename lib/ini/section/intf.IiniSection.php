@@ -11,6 +11,9 @@ interface IiniSection {
     private $SectionName;
     private $Properties;
     private $ParentIniFile;
+    protected $SectionRegex = <<<'SREG'
+/^\[([^\]]+)\]$/
+SREG;
 
 
     public function getProperty($PropertyKey);
@@ -30,6 +33,8 @@ interface IiniSection {
     public function getParentIniFile();
 
     public function setParentIniFile(file\IiniFile $ParentIniFile);
+
+    protected function getSectionRegex();
 
 }
 ?>
